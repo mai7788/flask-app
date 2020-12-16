@@ -15,4 +15,3 @@ def article():
 def element():
     return render_template('elements.html')
 
-app.run()
