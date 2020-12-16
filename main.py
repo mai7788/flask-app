@@ -14,5 +14,3 @@ def article():
 @app.route('/element')
 def element():
     return render_template('elements.html')
-
-app.run()
