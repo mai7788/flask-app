@@ -1,9 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/',methods=['GET','POST'])
 def index():
+    if request.method=='POST':
+        print("%s, %s, %s" % (request.form['name'], request.form['email'], request.form['message']))
+        return redirect(url_for('index'))
     # return "ok"
     return render_template('index.html')
 
@@ -14,5 +17,7 @@ def article():
 @app.route('/element')
 def element():
     return render_template('elements.html')
+
+
 
 app.run()
